@@ -10,7 +10,6 @@ public class SpawnManager : MonoBehaviour
     public float spawnRangeZ = 4;
     private float startDelay = 2;
     private float spawnInterval = 1;
-    public float score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +21,10 @@ public class SpawnManager : MonoBehaviour
     {
         
     }
-    void SpawnRandomObject()
+    void SpawnRandomItem()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, 0);//(-spawnRangeZ, spawnRangeZ));
-        int itemIndex = Random.Range (0, itemIndex.Length);
-        Debug.Log(score);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, 0);
+        int itemIndex = Random.Range (0, itemPrefabs.Length);
         Instantiate(itemPrefabs[itemIndex], spawnPos, itemPrefabs[itemIndex].transform.rotation);
     }
 }
