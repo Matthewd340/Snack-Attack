@@ -22,11 +22,10 @@ public class CollisionManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Good Item"))
+        if (other.gameObject.tag == "Good Item")
         {
-            Debug.Log("hello");
             score += score;
-            //Debug.Log("Score: " + score);
+            Debug.Log("Score: " + score);
         }
         else if (other.CompareTag("Bad Item"))
         {
@@ -35,18 +34,6 @@ public class CollisionManager : MonoBehaviour
             //Debug.Log("Score: " + score);
         }
         Destroy(gameObject);
-    }
-
-    private void IncreaseScore(int amount)
-    {
-        score += amount;
-        Debug.Log("Score: " + score);
-    }
-
-    private void DecreaseScore(int amount)
-    {
-        score -= amount;
-        Debug.Log("Score: " + score);
     }
 }
 
